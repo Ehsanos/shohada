@@ -1,1 +1,0 @@
-<?php /**PATH D:\projectFolder\shohada\vendor\filament\filament\src\/../resources/views/components/layouts/app/sidebar/footer.blade.php ENDPATH**/ ?>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Models\Department;
+use App\Models\Slider;
+
 
 class DepartmentController extends Controller
 {
@@ -14,7 +16,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -44,9 +46,15 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show(Department $department)
+    public function show($id)
     {
-        //
+$zones=Department::where('category_id',$id)->get();
+        $slider = Slider::where('type', '=', 'zones')->get();
+
+return view('pages.zones',['zones'=>$zones,'slider'=>$slider]);
+
+
+
     }
 
     /**

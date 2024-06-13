@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
     <header >
-        @if(Session::has('message'))
+{{--        @if(Session::has('message'))--}}
 
-            <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 1500)" x-show="show">
-                <div class="alert alert-success">{{ Session::get('message') }}</div>
-            </div>
-        @endif
+{{--            <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 1500)" x-show="show">--}}
+{{--                <div class="alert alert-success">{{ Session::get('message') }}</div>--}}
+{{--            </div>--}}
+{{--        @endif--}}
         <div class="top-content-slider">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -52,7 +52,7 @@
             </div>
         </div>
     </header>
-    <section class="d-flex flex-column justify-content-center align-items-center products-1 py-2"@if($style) style="background-color:{{$style->primary}}" @endif >
+{{--    <section class="d-flex flex-column justify-content-center align-items-center products-1 py-2">--}}
         <div class="container-fluid" >
             <i class="fas fa-folder-plus open-cats d-lg-none mt-2 " id="open-cats">
                 <span class="words-cat">{{lang('cats').' + '.lang('sections')}}</span>
@@ -87,35 +87,35 @@
                     </div>
                 </div>
                 <div class="row pt-5 ">
-                    <div class="col-12 alfeat-head">
-                        <div class="p-2">
-                            <h3 class="text-dark font-weight-bolder m-0">{{lang('cats')}}</h3>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="list-group lista-cats">
-                            @foreach($cats as $cat)
-                                <a class="list-group-item list-group-item-action font-weight-bolder"
-                                   href="{{route('langs.products', ["catId"=>$cat->id])}}">{{getTrans($cat,'name')}}</a>
-                            @endforeach
+{{--                    <div class="col-12 alfeat-head">--}}
+{{--                        <div class="p-2">--}}
+{{--                            <h3 class="text-dark font-weight-bolder m-0">{{lang('cats')}}</h3>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="list-group lista-cats">--}}
+{{--                            @foreach($cats as $cat)--}}
+{{--                                <a class="list-group-item list-group-item-action font-weight-bolder"--}}
+{{--                                   href="{{route('langs.products', ["catId"=>$cat->id])}}">{{getTrans($cat,'name')}}</a>--}}
+{{--                            @endforeach--}}
 
-                        </div>
-                    </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="row pt-5">
-                        <div class="col-12 alfeat-head">
-                            <div class="p-2">
-                                <h3 class="text-dark font-weight-bolder m-0">{{lang('sections')}}</h3>
-                            </div>
-                        </div>
+{{--                        <div class="col-12 alfeat-head">--}}
+{{--                            <div class="p-2">--}}
+{{--                                <h3 class="text-dark font-weight-bolder m-0">{{lang('sections')}}</h3>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="col">
-                            <div class="list-group lista-cats">
-                                @foreach($departments as $dep )
-                                    <a class="list-group-item list-group-item-action font-weight-bolder"
-                                       href="{{route("langs.products",["catId"=>$dep->category_id ?? 1,
-                                       "depId"=>"$dep->id" ??1])}}">{{getTrans($dep,'name')?? 'department'}}</a>
-                                @endforeach
+{{--                            <div class="list-group lista-cats">--}}
+{{--                                @foreach($departments as $dep )--}}
+{{--                                    <a class="list-group-item list-group-item-action font-weight-bolder"--}}
+{{--                                       href="{{route("langs.products",["catId"=>$dep->category_id ?? 1,--}}
+{{--                                       "depId"=>"$dep->id" ??1])}}">{{getTrans($dep,'name')?? 'department'}}</a>--}}
+{{--                                @endforeach--}}
 
-                            </div>
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -135,61 +135,58 @@
                 <div class="row" >
 
 
-                    @foreach($products as $product )
+                    @foreach($cats as $product )
 
 
-                        <div class=" col-6 col-lg-3 mb-2 " onmouseover="show(this)" onmouseleave="hide(this)">
-                            <div class="adding-hidden" id="add">
-                                <form action="{{route('langs.addToCart')}}" method="post">
-                                    @csrf
+                        <div class=" col-6 col-lg-3 mb-2 " >
+{{--                            <div class="adding-hidden" id="add">--}}
+{{--                                <form action="{{route('langs.addToCart')}}" method="post">--}}
+{{--                                    @csrf--}}
 
 
-                                        <input hidden value="{{$product->id}}" name="product">
-                                        <input hidden type="number" min="0" value="1" name="num">
-                                        <button type="submit" class="btn">
-                                           <i class="fas fa-plus-circle icn"></i>
-                                        </button>
-                                </form>
+{{--                                        <input hidden value="{{$product->id}}" name="product">--}}
+{{--                                        <input hidden type="number" min="0" value="1" name="num">--}}
+{{--                                        <button type="submit" class="btn">--}}
+{{--                                           <i class="fas fa-plus-circle icn"></i>--}}
+{{--                                        </button>--}}
+{{--                                </form>--}}
 
-                            </div>
-                            <a class="text-decoration-none" href="{{route('langs.product_details',[$product])}}">
+{{--                            </div>--}}
+                            <a class="text-decoration-none" href="{{route('langs.zones',[$product->id])}}">
                                 <div class="p-2 card product-main position-relative">
                                     <div class="text-center">
-                                        <h5 class="text-truncate font-weight-bolder"> {{$product->code ??
+                                        <h5 class="text-truncate font-weight-bolder"> {{$product->name ??
                                             'Code'}}</h5>
                                     </div>
                                     <div class="div-hr-w"></div>
                                     <div>
                                         <div class="text-center card-img p-2 "><img class="img-fluid"
-                                                                                   src="{{$product->getFirstMediaUrl('products')}}">
-{{--                                            <div class="icon-add">--}}
-{{--                                                <i class="fa fa-plus-circle d-flex align-items-center justify-content-center" aria-hidden="true"></i>--}}
-
-{{--                                            </div>--}}
+                                                                                   src="{{$product->getFirstMediaUrl
+                                                                                   ('categories')}}">
 
                                         </div>
-                                        <div class="px-3">
-                                            <p class="text-dark font-weight-bold">
+{{--                                        <div class="px-3">--}}
+{{--                                            <p class="text-dark font-weight-bold">--}}
 
-                                                {{getTrans($product,'name')}}</p>
+{{--                                                {{getTrans($product,'name')}}</p>--}}
 
-                                        @if(app()->getLocale()=='ar')
+{{--                                        @if(app()->getLocale()=='ar')--}}
 
-                                            <p class="text-dark font-weight-bold">{{$product->department->name ??
-                                            'Depatment'}}</p>
+{{--                                            <p class="text-dark font-weight-bold">{{$product->department->name ??--}}
+{{--                                            'Depatment'}}</p>--}}
 
-                                            @elseif(app()->getLocale()=='en')
-                                                <p class="text-dark font-weight-bold">{{$product->department->name_en
-                                                 ??
-                                            'Depatment'}}</p>
+{{--                                            @elseif(app()->getLocale()=='en')--}}
+{{--                                                <p class="text-dark font-weight-bold">{{$product->department->name_en--}}
+{{--                                                 ??--}}
+{{--                                            'Depatment'}}</p>--}}
 
-                                            @elseif(app()->getLocale()=='tr')
-                                                <p class="text-dark font-weight-bold">{{$product->department->name_tr
-                                                 ??
-                                            'Depatment'}}</p>
-                                            @endif
+{{--                                            @elseif(app()->getLocale()=='tr')--}}
+{{--                                                <p class="text-dark font-weight-bold">{{$product->department->name_tr--}}
+{{--                                                 ??--}}
+{{--                                            'Depatment'}}</p>--}}
+{{--                                            @endif--}}
 
-                                        </div>
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </a>
@@ -205,12 +202,14 @@
 
 
         </div>
+
+{{--    tags section--}}
         <div class=" mt-2 container">
-            @foreach($tags as $tag)
+{{--            @foreach($tags as $tag)--}}
 
-                <a href="#" class="badge badge-dark tags-div py-2 px-2 mb-1">{{$tag->name['ar']}}</a>
+{{--                <a href="#" class="badge badge-dark tags-div py-2 px-2 mb-1">{{$tag->name['ar']}}</a>--}}
 
-            @endforeach
+{{--            @endforeach--}}
 
             {{--                <a href="#" class="badge badge-dark tag-div py-2 px-2 mb-1">Dark</a>--}}
 

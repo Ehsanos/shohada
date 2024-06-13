@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Altin Mix 34</title>
+    <title>Syrian </title>
 
     @if(app()->getLocale()=='ar')
         <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
@@ -17,7 +17,7 @@
     {{--    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('assets/css/agent.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/about.css')}}">
-    <link rel="icon" href="{!! asset('assets/img/Altinmix.svg') !!}"/>
+    <link rel="icon" href="{!! asset('assets/img/flag.png') !!}"/>
 
 
     <link rel="stylesheet"
@@ -71,12 +71,12 @@
         <div class="container-fluid">
             <a href="{{route('langs.index')}}"
                                         class="navbar-brand d-flex align-items-center"></a>
-<div class="top-div d-flex align-items-center justify-content-center d-md-none">
-            <a href="{{route('langs.index')}}" class="text-decoration-none">
-            <h1 class="head-altn d-block d-lg-none">AltinMix 34</h1>
-            </a>
-            <i class="fa fa-search icon-top px-2" id="serach-top-icon" aria-hidden="true"></i>
-</div>
+{{--<div class="top-div d-flex align-items-center justify-content-center d-md-none">--}}
+{{--            <a href="{{route('langs.index')}}" class="text-decoration-none">--}}
+{{--           --}}
+{{--            </a>--}}
+{{--            <i class="fa fa-search icon-top px-2" id="serach-top-icon" aria-hidden="true"></i>--}}
+{{--</div>--}}
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -88,23 +88,19 @@
 
                     <li class="nav-item main-link" id="nav-product"><a
                             class="nav-link dropdown font-weight-bolder  @if (\Request::route()->getName() =='langs.products') active @endif"
-                            href="{{route('langs.products')}}">{{lang('product')}}</a></li>
-                    <li class="nav-item main-link" id="nav2"><a
-                            class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif"
-                            href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>
+                            href="{{route('langs.products')}}">{{lang('cats')}}</a></li>
+
+{{--                        <li class="nav-item main-link" id="nav2"><a--}}
+{{--                                class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.catalog') active @endif"--}}
+{{--                                href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>--}}
+{{--                        <li class="nav-item main-link" id="nav3"><a--}}
+{{--                                class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.agents') active @endif"--}}
+{{--                                href="{{route('langs.agents')}}">{{lang('agents')}}</a></li>--}}
+
                     <li class="nav-item main-link" id="nav3"><a
-                            class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.agents') active @endif"
-                            href="{{route('langs.agents')}}">{{lang('agents')}}</a></li>
-                    {{--                    <li class="nav-item main-link"><a--}}
-                    {{--                            class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.delegte') active @endif"--}}
-                    {{--                            href="{{route('langs.delegte')}}">{{lang('delegte')}}</a></li>--}}
-                    {{--                    <li class="nav-item main-link"><a--}}
-                    {{--                            class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.jobs') active @endif"--}}
-                    {{--                            href="{{route('langs.jobs')}}">{{lang('jobs')}}</a></li>--}}
-                    <li class="nav-item main-link" id="nav4"><a
                             class="nav-link font-weight-bolder @if (\Request::route()->getName() =='langs.news') active @endif"
                             href="{{route('langs.news')}}">{{lang('news')}}</a></li>
-                    <li class="nav-item main-link" id="nav5"><a
+                    <li class="nav-item main-link" id="nav4"><a
                             class="nav-link text-nowrap font-weight-bolder @if (\Request::route()->getName() =='langs.about') active @endif"
                             href="{{route('langs.about')}}">{{lang('we_are')}}</a></li>
                     <li class="nav-item d-none d-lg-block mx-2">
@@ -131,48 +127,59 @@
                         </div>
                     </li>
                 </ul>
-                @if(Auth::check())
 
 
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a href="{{route('langs.cart')}}">
-                            <div class="mx-3 d-flex align-items-center justify-content-center">
-                                <i class=" m-0 " style="font-size: 22px">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30"
-                                         viewBox="0 0 576 512">
-                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
-                                        <path
-                                            d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/>
-                                    </svg>
-                                </i>
-                                <span
-                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">
-                                    <livewire:counter/>
-                                </span>
-                            </div>
-                        </a>
 
-                        <a href="{{route('langs.profile')}}">
-                            @if(auth()->user()->getFirstMediaUrl('users'))
-                                <img style="height: 50px; width:50px; border-radius: 50% "
-                                     src="{{auth()->user()->getFirstMediaUrl('users')}}" alt=" ">
-                            @else
-                                <img style="height: 50px; width:50px; border-radius: 50% "
-                                     src="{{asset('assets/img/vec.png')}}" alt=" ">
-                            @endif
-                        </a>
-                    </div>
+{{--                @if(Auth::check())--}}
 
 
-                @else
-                    <div>
-                        <a class="btn shadow btn-sign" href="{{route('login')}}" role="button">{{lang('login')}}</a>
-                        <a class="btn shadow btn-sign" href="{{route('register')}}"
-                           role="button">{{lang('register')}}</a>
+{{--                    <div class="d-flex align-items-center justify-content-center">--}}
+{{--                        <a href="{{route('langs.cart')}}">--}}
+{{--                            <div class="mx-3 d-flex align-items-center justify-content-center">--}}
+{{--                                <i class=" m-0 " style="font-size: 22px">--}}
+{{--                                    <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30"--}}
+{{--                                         viewBox="0 0 576 512">--}}
+{{--                                        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->--}}
+{{--                                        <path--}}
+{{--                                            d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/>--}}
+{{--                                    </svg>--}}
+{{--                                </i>--}}
+{{--                                <span--}}
+{{--                                    class="badge mb-lg-4 mb-2 bg-warning text-white " style="border-radius:40%">--}}
+{{--                                    <livewire:counter/>--}}
+{{--                                </span>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
 
-                    </div>
+{{--                        <a href="{{route('langs.profile')}}">--}}
+{{--                            @if(auth()->user()->getFirstMediaUrl('users'))--}}
+{{--                                <img style="height: 50px; width:50px; border-radius: 50% "--}}
+{{--                                     src="{{auth()->user()->getFirstMediaUrl('users')}}" alt=" ">--}}
+{{--                            @else--}}
+{{--                                <img style="height: 50px; width:50px; border-radius: 50% "--}}
+{{--                                     src="{{asset('assets/img/vec.png')}}" alt=" ">--}}
+{{--                            @endif--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
 
-                @endif
+
+{{--                @else--}}
+{{--                    <div>--}}
+{{--                        <a class="btn shadow btn-sign" href="{{route('login')}}" role="button">{{lang('login')}}</a>--}}
+{{--                        <a class="btn shadow btn-sign" href="{{route('register')}}"--}}
+{{--                           role="button">{{lang('register')}}</a>--}}
+
+{{--                    </div>--}}
+
+{{--                @endif--}}
+
+
+
+
+
+
+
+
 
                 <div class="dropdown d-lg-flex align-items-lg-center mx-4 py-2">
                     <a class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown" href="#">
@@ -217,7 +224,7 @@
     <div class="products-div p-3" id="products_div">
         {{--<span><i class="fas fa-window-close" id="close"></i></span>--}}
         @foreach($cats as $cat)
-            <a href="{{route('langs.fofo',$cat)}}" class="product-show-div">
+            <a href="{{route('langs.zones',$cat->id)}}" class="product-show-div">
                 <li class="m-1 list-products">
 
                     {{getTrans($cat,'name')}}
@@ -240,9 +247,6 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://wa.me/{{$setting->whatsapp1?? $setting->whatsapp2}}" class="floatbb" target="_blank">
-        <i class="fa fa-whatsapp my-float"></i>
-    </a>
 
     <footer class="footer">
         <div class="container py-4 py-lg-5">
@@ -267,8 +271,8 @@
                         <h3 class="font-weight-bold text-center text-lg-right fs-6 text-dark">{{lang('pages')}}</h3>
                         <ul class="list-unstyled text-center text-lg-right">
                             <li><a href="{{route('langs.index')}}">{{lang('home')}}</a></li>
-                            <li><a href="{{route('langs.products')}}">{{lang('product')}}</a></li>
-                            <li><a href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>
+{{--                            <li><a href="{{route('langs.products')}}">{{lang('product')}}</a></li>--}}
+{{--                            <li><a href="{{route('langs.catalog')}}">{{lang('services')}}</a></li>--}}
                         </ul>
                     </div>
                 </div>
@@ -285,7 +289,7 @@
             </div>
             <hr>
             <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <p class="mb-0">{{lang('rights')}} AlTinMIX </p>
+                <p class="mb-0">{{lang('rights')}} Shohada Syrian </p>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
                         <a href="{{$setting->facebook}}">
@@ -322,7 +326,7 @@
         </div>
     </footer>
 </main>
-<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>
+{{--<script src="//code.tidio.co/wo5ts73xsjvokgdmqdfqszqytforywxp.js" async></script>--}}
 
 @livewireScripts
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>

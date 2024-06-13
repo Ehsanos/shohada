@@ -33,7 +33,7 @@
 
 
 .navbar-brand {
-    background: url("../../assets/img/Altinmix.svg") center / contain no-repeat;
+    background: url("../../assets/img/flag.png") center / contain no-repeat;
     width: 50px;
     height: 50px;
 }
@@ -457,6 +457,11 @@ body {
 
 
     display: none;
+    background-image: url("../img/flag.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit:contain;
+
 
 }
 
@@ -469,7 +474,7 @@ body {
 
 .products-show {
 
-    background-color: #33270f;
+    background-color: #4b723f;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -484,6 +489,10 @@ body {
     box-shadow: -1px -1px 6px 2px rgb(241, 241, 241);
     animation: show 1s ease-out forwards;
     opacity: 0.8;
+    background-image: url("../img/flag.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit:contain;
 
 }
 
@@ -548,13 +557,14 @@ body {
 }
 
 .list-products:hover {
-    background-color: #c29e40;
+    background-color: #211515;
     box-shadow: -1px -1px 6px 2px rgb(241, 241, 241);
     transform: scaleY(1.10);
     cursor: pointer;
     border: 1px solid black;
     border-radius: 5px;
     padding: 2px;
+    color: white;
 }
 
 .icon-add {

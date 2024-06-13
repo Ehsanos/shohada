@@ -107,8 +107,8 @@ class CategoryResource extends Resource
                 ]),
 
 
-                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية'),
-                Forms\Components\TagsInput::make('tagsen')->label('كلمات مفتاحية'),
+//                Forms\Components\TagsInput::make('tags')->label('كلمات مفتاحية'),
+//                Forms\Components\TagsInput::make('tagsen')->label('كلمات مفتاحية'),
 
 
             ]);

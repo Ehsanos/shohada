@@ -1,1 +1,0 @@
-<?php /**PATH D:\projectFolder\shohada\vendor\filament\filament\src\/../resources/views/components/global-search/end.blade.php ENDPATH**/ ?>

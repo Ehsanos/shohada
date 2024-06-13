@@ -179,19 +179,19 @@ const products_div = document.querySelector('#products_div');
 const close = document.querySelector('#close');
 
 const nav1 = document.querySelector('#nav1');
-const nav2 = document.querySelector('#nav2');
+// const nav2 = document.querySelector('#nav2');
 const nav3 = document.querySelector('#nav3');
 const nav4 = document.querySelector('#nav4');
-const nav5 = document.querySelector('#nav5');
+// const nav5 = document.querySelector('#nav5');
 
 nav1.addEventListener('mousemove', () => {
     products_div.classList.remove("products-show")
     products_div.classList.add("products-div")
 })
-nav2.addEventListener('mousemove', () => {
-    products_div.classList.remove("products-show")
-    products_div.classList.add("products-div")
-})
+// nav2.addEventListener('mousemove', () => {
+//     products_div.classList.remove("products-show")
+//     products_div.classList.add("products-div")
+// })
 nav3.addEventListener('mousemove', () => {
     products_div.classList.remove("products-show")
     products_div.classList.add("products-div")

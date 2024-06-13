@@ -3,23 +3,11 @@
 
     <main  @if($style) style="background-color:{{$style->primary}}" @endif>
         {{--   <h1 class="bg-danger">{{Auth()->user()->name ?? 'none'}} </h1>--}}
-        @if(Session::has('message'))
 
-            <div class="w-25" x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show">
-                <div class="alert alert-success">{{ Session::get('message') }}</div>
-            </div>
-        @endif
         <header class="mt-1">
             <div class="top-content">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-{{--                    <ol class="carousel-indicators">--}}
-{{--                        @foreach($slider as $slide)--}}
-{{--                            <li data-target="#myCarousel" data-slide-to="{{$loop->index}}"--}}
-{{--                                @if($loop->first) class="active" @endif></li>--}}
-{{--                        @endforeach--}}
-{{--                        --}}{{--                        <li data-target="#myCarousel" data-slide-to="1"></li>--}}
-{{--                        --}}{{--                        <li data-target="#myCarousel" data-slide-to="2"></li>--}}
-{{--                    </ol>--}}
+
                     <div class="carousel-inner">
 
                         @foreach($slider as $slide)
@@ -75,121 +63,121 @@
 
 
         {{--Products slider section--}}
-        <section class="d-flex flex-column justify-content-center align-items-center mt-5   sections-s">
-            <div class="container-fluid">
-                <div class="row justify-content-center py-0 m-0">
-                    <div class="col-12 col-lg-10">
-                        <div id="sections" class="owl-carousel owl-theme">
+{{--        <section class="d-flex flex-column justify-content-center align-items-center mt-5   sections-s">--}}
+{{--            <div class="container-fluid">--}}
+{{--                <div class="row justify-content-center py-0 m-0">--}}
+{{--                    <div class="col-12 col-lg-10">--}}
+{{--                        <div id="sections" class="owl-carousel owl-theme">--}}
 
-                            @foreach($prodcuts as $product)
-                                <div class="px-0 item " onmouseover="show(this)" onmouseleave="hide
-                                (this)">
-                                    <div class="adding-hidden" id="add">
-                                        <form action="{{route('langs.addToCart')}}" method="post">
-                                            @csrf
-
-
-                                            <input hidden value="{{$product->id}}" name="product">
-                                            <input hidden type="number" min="0" value="1" name="num">
-                                            <button type="submit" class="btn">
-                                                <i class="fas fa-plus-circle icn"></i>
-                                            </button>
-                                        </form>
-
-                                    </div>
-
-                                    <a class="text-decoration-none p-0"
-                                                                  href="{{route('langs.product_details',[$product])}}">
-                                        <div class="card  cards-shadown cards-hover  w-100"
-                                             data-aos="flip-left"
-                                             data-aos-duration="950">
-                                            <div class="card-header p-1 p-md-3"><img class="img-fluid rounded-img"
-                                                                          src="{{$product->getFirstMediaUrl('products')}}">
-                                            </div>
-                                            <div class="card-body  after">
-                                                <p class="card-text sub-text-color d-none d-md-block">{{getTrans($product,
-                                                'name')
-                                                }}</p>
-                                                <span class="card-text sub-text-color">{{$product->code}} </span>
-                                                @if(app()->getLocale()=="ar")
-                                                <p class="card-text sub-text-color">{{$product->department->name ??
-                                                ""}}</p>
-
-                                                    @elseif(app()->getLocale()=="en")
-                                                    <p class="card-text
-                                                    sub-text-color">{{$product->department->name_en ??
-                                                ""}}</p>
-                                                        @elseif(app()->getLocale()=="tr")
-                                                    <p class="card-text
-                                                    sub-text-color">{{$product->department->name_tr ??
-                                                ""}}</p>
-                                                @endif
-                                                {{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
-                                            </div>
-                                        </div>
-                                    </a></div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center py-0">
-                    <div class="col-12 col-lg-10">
-                        <div id="sections-2" class="owl-carousel">
-
-                            @foreach($prodcuts->sortBy('name') as $product)
-                                <div class="px-1 product-item " onmouseover="show(this)" onmouseleave="hide(this)">
-                                    <div class="adding-hidden" id="add">
-                                        <form action="{{route('langs.addToCart')}}" method="post">
-                                            @csrf
+{{--                            @foreach($prodcuts as $product)--}}
+{{--                                <div class="px-0 item " onmouseover="show(this)" onmouseleave="hide--}}
+{{--                                (this)">--}}
+{{--                                    <div class="adding-hidden" id="add">--}}
+{{--                                        <form action="{{route('langs.addToCart')}}" method="post">--}}
+{{--                                            @csrf--}}
 
 
-                                            <input hidden value="{{$product->id}}" name="product">
-                                            <input hidden type="number" min="0" value="1" name="num">
-                                            <button type="submit" class="btn">
-                                                <i class="fas fa-plus-circle icn"></i>
-                                            </button>
-                                        </form>
+{{--                                            <input hidden value="{{$product->id}}" name="product">--}}
+{{--                                            <input hidden type="number" min="0" value="1" name="num">--}}
+{{--                                            <button type="submit" class="btn">--}}
+{{--                                                <i class="fas fa-plus-circle icn"></i>--}}
+{{--                                            </button>--}}
+{{--                                        </form>--}}
 
-                                    </div>
+{{--                                    </div>--}}
 
-                                    <a class="text-decoration-none"
-                                                                  href="{{route('langs.product_details',[$product])}}">
-                                        <div class="card cards-shadown cards-hover w-100" data-aos="flip-left"
-                                             data-aos-duration="950">
-                                            <div class="card-header p-1 p-md-2"><img class="img-fluid rounded-img"
-                                                                          src="{{$product->getFirstMediaUrl('products')}}">
-                                            </div>
-                                            <div class="card-body after">
-                                                <p class="card-text sub-text-color d-none d-md-block">{{getTrans($product,
-                                                'name')}}</p>
-                                                <span class="card-text sub-text-color">{{$product->code}} </span>
-                                                @if(app()->getLocale()=="ar")
-                                                    <p class="card-text sub-text-color">{{$product->department->name ??
-                                                ""}}</p>
+{{--                                    <a class="text-decoration-none p-0"--}}
+{{--                                                                  href="{{route('langs.product_details',[$product])}}">--}}
+{{--                                        <div class="card  cards-shadown cards-hover  w-100"--}}
+{{--                                             data-aos="flip-left"--}}
+{{--                                             data-aos-duration="950">--}}
+{{--                                            <div class="card-header p-1 p-md-3"><img class="img-fluid rounded-img"--}}
+{{--                                                                          src="{{$product->getFirstMediaUrl('products')}}">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="card-body  after">--}}
+{{--                                                <p class="card-text sub-text-color d-none d-md-block">{{getTrans($product,--}}
+{{--                                                'name')--}}
+{{--                                                }}</p>--}}
+{{--                                                <span class="card-text sub-text-color">{{$product->code}} </span>--}}
+{{--                                                @if(app()->getLocale()=="ar")--}}
+{{--                                                <p class="card-text sub-text-color">{{$product->department->name ??--}}
+{{--                                                ""}}</p>--}}
 
-                                                @elseif(app()->getLocale()=="en")
-                                                    <p class="card-text
-                                                    sub-text-color">{{$product->department->name_en ??
-                                                ""}}</p>
-                                                @elseif(app()->getLocale()=="tr")
-                                                    <p class="card-text
-                                                    sub-text-color">{{$product->department->name_tr ??
-                                                ""}}</p>
-                                                @endif
-                                                {{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
-                                            </div>
+{{--                                                    @elseif(app()->getLocale()=="en")--}}
+{{--                                                    <p class="card-text--}}
+{{--                                                    sub-text-color">{{$product->department->name_en ??--}}
+{{--                                                ""}}</p>--}}
+{{--                                                        @elseif(app()->getLocale()=="tr")--}}
+{{--                                                    <p class="card-text--}}
+{{--                                                    sub-text-color">{{$product->department->name_tr ??--}}
+{{--                                                ""}}</p>--}}
+{{--                                                @endif--}}
+{{--                                                --}}{{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </a></div>--}}
+{{--                            @endforeach--}}
 
-                                        </div>
-                                    </a></div>
-                            @endforeach
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--                <div class="row justify-content-center py-0">--}}
+{{--                    <div class="col-12 col-lg-10">--}}
+{{--                        <div id="sections-2" class="owl-carousel">--}}
+
+{{--                            @foreach($prodcuts->sortBy('name') as $product)--}}
+{{--                                <div class="px-1 product-item " onmouseover="show(this)" onmouseleave="hide(this)">--}}
+{{--                                    <div class="adding-hidden" id="add">--}}
+{{--                                        <form action="{{route('langs.addToCart')}}" method="post">--}}
+{{--                                            @csrf--}}
+
+
+{{--                                            <input hidden value="{{$product->id}}" name="product">--}}
+{{--                                            <input hidden type="number" min="0" value="1" name="num">--}}
+{{--                                            <button type="submit" class="btn">--}}
+{{--                                                <i class="fas fa-plus-circle icn"></i>--}}
+{{--                                            </button>--}}
+{{--                                        </form>--}}
+
+{{--                                    </div>--}}
+
+{{--                                    <a class="text-decoration-none"--}}
+{{--                                                                  href="{{route('langs.product_details',[$product])}}">--}}
+{{--                                        <div class="card cards-shadown cards-hover w-100" data-aos="flip-left"--}}
+{{--                                             data-aos-duration="950">--}}
+{{--                                            <div class="card-header p-1 p-md-2"><img class="img-fluid rounded-img"--}}
+{{--                                                                          src="{{$product->getFirstMediaUrl('products')}}">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="card-body after">--}}
+{{--                                                <p class="card-text sub-text-color d-none d-md-block">{{getTrans($product,--}}
+{{--                                                'name')}}</p>--}}
+{{--                                                <span class="card-text sub-text-color">{{$product->code}} </span>--}}
+{{--                                                @if(app()->getLocale()=="ar")--}}
+{{--                                                    <p class="card-text sub-text-color">{{$product->department->name ??--}}
+{{--                                                ""}}</p>--}}
+
+{{--                                                @elseif(app()->getLocale()=="en")--}}
+{{--                                                    <p class="card-text--}}
+{{--                                                    sub-text-color">{{$product->department->name_en ??--}}
+{{--                                                ""}}</p>--}}
+{{--                                                @elseif(app()->getLocale()=="tr")--}}
+{{--                                                    <p class="card-text--}}
+{{--                                                    sub-text-color">{{$product->department->name_tr ??--}}
+{{--                                                ""}}</p>--}}
+{{--                                                @endif--}}
+{{--                                                --}}{{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
+{{--                                            </div>--}}
+
+{{--                                        </div>--}}
+{{--                                    </a></div>--}}
+{{--                            @endforeach--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
 
         {{--Category sliders section--}}
@@ -284,44 +272,45 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center  py-0">
-                    <div class="col-12 col-lg-10">
-                        <div id="sections-2" class="owl-carousel">
+{{--                <div class="row justify-content-center  py-0">--}}
+{{--                    <div class="col-12 col-lg-10">--}}
+{{--                        <div id="sections-2" class="owl-carousel">--}}
 
-                            @foreach($prodcuts->sortBy('name') as $product)
-                                <div class="px-2 product-item my-3" onmouseover="show(this)" onmouseleave="hide(this)">
-                                    <div class="adding-hidden" id="add">
-                                        <form action="{{route('langs.addToCart')}}" method="post">
-                                            @csrf
+{{--                            @foreach($prodcuts->sortBy('name') as $product)--}}
+{{--                                <div class="px-2 product-item my-3" onmouseover="show(this)" onmouseleave="hide(this)">--}}
+{{--                                    <div class="adding-hidden" id="add">--}}
+{{--                                        <form action="{{route('langs.addToCart')}}" method="post">--}}
+{{--                                            @csrf--}}
 
 
-                                            <input hidden value="{{$product->id}}" name="product">
-                                            <input hidden type="number" min="0" value="1" name="num">
-                                            <button type="submit" class="btn">
-                                                <i class="fas fa-plus-circle icn"></i>
-                                            </button>
-                                        </form>
+{{--                                            <input hidden value="{{$product->id}}" name="product">--}}
+{{--                                            <input hidden type="number" min="0" value="1" name="num">--}}
+{{--                                            <button type="submit" class="btn">--}}
+{{--                                                <i class="fas fa-plus-circle icn"></i>--}}
+{{--                                            </button>--}}
+{{--                                        </form>--}}
 
-                                    </div>
+{{--                                    </div>--}}
 
-                                    <a class="text-decoration-none"
-                                       href="{{route('langs.product_details',[$product])}}">
-                                        <div class="card cards-shadown cards-hover my-3 w-100" data-aos="flip-left"
-                                             data-aos-duration="950">
-                                            <div class="card-header"><img class="img-fluid rounded-img"
-                                                                          src="{{$product->getFirstMediaUrl('products')}}">
-                                            </div>
-                                            <div class="card-body after">
-                                                <p class="card-text sub-text-color">{{getTrans($product,'name')}}</p>
-                                                {{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
-                                            </div>
-                                        </div>
-                                    </a></div>
-                            @endforeach
+{{--                                    <a class="text-decoration-none"--}}
+{{--                                       href="{{route('langs.product_details',[$product])}}">--}}
+{{--                                        <div class="card cards-shadown cards-hover my-3 w-100" data-aos="flip-left"--}}
+{{--                                             data-aos-duration="950">--}}
+{{--                                            <div class="card-header"><img class="img-fluid rounded-img"--}}
+{{--                                                                          src="{{$product->getFirstMediaUrl('products')}}">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="card-body after">--}}
+{{--                                                <p class="card-text sub-text-color">{{getTrans($product,'name')}}</p>--}}
+{{--                                                --}}{{--                                            <p class="card-text cardbody-sub-text">{!!getTrans($product,'description')!!}</p>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </a></div>--}}
+{{--                            @endforeach--}}
 
-                        </div>
-                    </div>
-                </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
             </div>
         </section>
 
@@ -364,16 +353,16 @@
 
 
         {{--Commenction Section--}}
-        <section class="wrapper-numbers">
+{{--        <section class="wrapper-numbers">--}}
 
-            <div class="container">
-                <div class="row countup text-center">
+{{--            <div class="container">--}}
+{{--                <div class="row countup text-center">--}}
 
-                    {!!getTrans($settings,'address')!!}
+{{--                    {!!getTrans($settings,'address')!!}--}}
 
-                </div>
-            </div>
-        </section>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
 
     </main>
